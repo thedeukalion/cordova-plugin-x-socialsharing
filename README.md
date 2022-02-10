@@ -15,6 +15,8 @@
 [![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=eddyverbruggen%40gmail%2ecom&lc=US&item_name=cordova%2dplugin%2dsocialsharing&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted)
 Every now and then kind folks ask me how they can give me all their money. So if you want to contribute to my pension fund, then please go ahead :)
 
+> Version 6.0.0 is compatible with Android X. See [this issue](https://github.com/EddyVerbruggen/SocialSharing-PhoneGap-Plugin/pull/1039) for details. 5.6.8 is the last version before 6.0.0, so be sure to pick that if you run into Android X-related issues.
+
 ## 0. Index
 
 1. [Description](#1-description)
@@ -25,6 +27,8 @@ Every now and then kind folks ask me how they can give me all their money. So if
 6. [Usage on Windows Phone](#6-usage-on-windows-phone)
 7. [Share-popover on iPad](#7-share-popover-on-ipad)
 8. [Whitelisting on iOS](#8-whitelisting-on-ios)
+9. [NSPhotoLibraryUsageDescription on iOS](#9-nsphotolibraryusagedescription-on-ios)
+10. [Import Types into an Ionic Angular Project](#10-import-types-into-an-ionic-angular-project)
 
 ## 1. Description
 
@@ -536,7 +540,7 @@ To address query schema issue, after installaing the plugin you can edit the iOS
             </array>
         </config-file>
     </platform>
-</widget>        
+</widget>
 ```
 
 The advantage with this method is that editing is done in the config.xml file which will most often be in your source control anyway and hence, changes to it will be reserved.
@@ -549,4 +553,13 @@ The plugin configures a default description for you. If you do need to customise
 
 ```
 $ cordova plugin add cordova-plugin-x-socialsharing --variable PHOTO_LIBRARY_USAGE_DESCRIPTION="This app uses your photo library" --variable PHOTO_LIBRARY_ADD_USAGE_DESCRIPTION="This app saves images your photo library"
+```
+
+## 10. Import Types into an Ionic Angular Project
+
+If you do not already have a typings file definition, create one inside your `src` folder, for example`src/typings.d.ts`
+
+Add this reference into your typings file definition:
+```
+/// <reference path="../node_modules/cordova-plugin-x-socialsharing/types/index.d.ts" />
 ```
